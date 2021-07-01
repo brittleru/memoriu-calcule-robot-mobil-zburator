@@ -1,0 +1,176 @@
+/* Setup */
+body {
+  background-color: #000 !important;
+}
+
+/* Logouri */
+.img-dreapta {
+  height: 150px;
+  width: 150px;
+  float: right;
+}
+
+.img-stanga {
+  height: 150px;
+  width: 150px;
+  float: left;
+}
+
+.div-imgs {
+  margin: 50px 0px 50px 0px;
+}
+
+/* Text */
+.culoare-text {
+  color: #F8F8F8;
+}
+
+.text-centru {
+  text-align: center;
+}
+
+/* Pentru arie */
+.drona-imagine {
+  background-color: #F8F8F8;
+  border-radius: 20px;
+  height: 350px;
+  width: 370px;
+}
+
+.img-drona {
+  border: 5px groove rgb(14, 99, 42);
+  border-radius: 20px;
+  height: 350px;
+  width: 370px;
+}
+
+/* Panel date */
+.panel-date {
+  border: 3px groove rgb(14, 99, 42);
+  border-radius: 20px;
+  margin-top: 35px;
+  width: 370px;
+  padding: 20px;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.stanga {
+  float: left;
+  width: 160px;
+  border-right: 1.5px solid #16a596;
+  padding-right: 10px;
+  margin-bottom: 20px;
+}
+
+.dreapta {
+  float: right;
+  width: 160px;
+  margin-bottom: 20px;
+}
+
+.indice {
+  font-size: 10px;
+}
+
+.primu {
+  /* margin-top: 80px;
+  height: 200px; */
+}
+
+.box {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.box input {
+  width: 60px;
+  float: right;
+}
+
+/* Panel rezultate */
+.panel-rezultate {
+  border: 3px groove rgb(14, 99, 42);
+  border-radius: 20px;
+  margin-top: 35px;
+  margin-left: 30px;
+  width: 650px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Se cunosc? */
+.intrebare {
+  border: 3px groove rgb(14, 99, 42);
+  border-radius: 20px;
+  margin-top: 35px;
+  margin-left: 550px !important;
+  width: 250px !important;
+  /* float: left; */
+
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+/* Butoane */
+.calcule-buton {
+  background-color: rgb(14, 99, 42);
+  border: none;
+  color: white;
+  padding: 5px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: -20px 0px 0px 60px;
+}
+.small-fix {
+    margin: 50px 50px 0px 0px;
+}
+/* Tooltips stuff */
+/* Pe dreapta */
+.tooltip-right {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-right .tooltiptext-right {
+  visibility: hidden;
+  width: 120px;
+  background-color: #9A9CDF;
+  color: #000;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  right: 110%;
+}
+
+.tooltip-right .tooltiptext-right::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  margin-top: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent transparent #222;
+}
+
+.tooltip-right:hover .tooltiptext-right {
+  visibility: visible;
+}
+
+/* end */
+.last {
+  padding-bottom: 20px;
+}

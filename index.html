@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calcule Robot Mobil Zburator</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./img/fav.png">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <!-- Logo-uri -->
+  <div class="container">
+    <div class="container div-imgs">
+      <img class="img-stanga" src="./img/logo-poli.png" alt="">
+      <img class="img-dreapta" src="./img/logo-facultate.png" alt="">
+    </div>
+  </div>
+  <!-- Titlu -->
+  <div class="container text-container">
+    <br>
+    <h3 class="text-centru culoare-text">Calcule pentru robot mobil zburator</h3>
+    <h3 class="text-centru culoare-text">Departamentul de Mecatronica si Mecanica de Precizie</h3>
+  </div>
+
+
+  <!-- Afisare date sau nu -->
+  <div class="container intrebare culoare-text">
+
+    <p>Se cunoaste aria pe verticala? </p>
+    <input type="radio" id="da-drona" name="drona" value="da">
+    <label for="da-drona">Da</label>
+    <input type="radio" id="nu-drona" name="drona" value="nu" checked>
+    <label for="nu-drona">Nu</label>
+
+  </div>
+
+  <!-- Date Arie -->
+  <div id="arie-tot" class="container primu">
+    <div class="row">
+      <div class="container col col-md-4">
+        <div class="panel-date culoare-text">
+          <h4>Date Arie Sectionala</h4>
+
+          <!-- Pentru suprafata componenteleor -->
+          <div class="toggle-button">
+            <label for="arie-drona" class="text-col">Suprafata componentelor A<span class="indice">c </span> este?</label>
+            <select class="toggle-sty" name="arie-drona" id="toggle-arie">
+              <option value="cerc">Circulara</option>
+              <option value="dreptunghi">Dreptunghiulara</option>
+            </select>
+          </div>
+          <br>
+
+          <div class="stanga">
+
+            <!-- Diametru Elice -->
+            <div class="box tooltip-right">
+              <label for="diametru-elice-arie">Φ<span class="indice">e </span>[mm] = &nbsp<span class="tooltiptext-right">Diametrul elicei echivalent A<span class="indice">e</span></span></label>
+              <input type="number" id="diametru-elice-arie" name="diametru-elice-arie" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Lungime brat -->
+            <div class="box tooltip-right">
+              <label for="lungime-brat">L <span class="indice">b </span>[mm] = &nbsp<span class="tooltiptext-right">Lungime brat echivalent A<span class="indice">b</span></span></label>
+              <input type="number" id="lungime-brat" name="lungime-brat" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Latime brat -->
+            <div class="box tooltip-right tooltip-right">
+              <label for="latime-brat">l <span class="indice">b </span>&nbsp[mm] = &nbsp<span class="tooltiptext-right">Latime brat echivalent A<span class="indice">b</span></span></label>
+              <input type="number" id="latime-brat" name="latime-brat" autocomplete="on" placeholder="...">
+            </div>
+
+          </div>
+
+
+          <div class="dreapta">
+
+            <!-- Diametru cadru componente -->
+            <div class="box tooltip-right">
+              <label for="diametru-cadru">Φ <span class="indice">D </span>[mm] = &nbsp<span class="tooltiptext-right">Diametrul cercului pe care stau componentele echivalent A<span class="indice">C</span></span></label>
+              <input type="number" id="diametru-cadru" name="diametru-cadru" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Lungime cadru componente -->
+            <div class="box tooltip-right">
+              <label for="lungime-cadru">L<span class="indice">c </span>&nbsp[mm] = &nbsp&nbsp<span class="tooltiptext-right">Lungimea structurii pe care stau componentele echivalent A<span class="indice">C</span></span></label>
+              <input type="number" id="lungime-cadru" name="lungime-cadru" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Latime cadru componente -->
+            <div class="box tooltip-right">
+              <label for="latime-cadru">l <span class="indice">c </span>[mm] = &nbsp&nbsp&nbsp<span class="tooltiptext-right">Latimea structurii pe care stau componentele echivalent A<span class="indice">C</span></span></label>
+              <input type="number" id="latime-cadru" name="latime-cadru" autocomplete="on" placeholder="...">
+            </div>
+
+            <div class="box tooltip-right">
+              <p>A<span class="indice">V</span> = <span id="rezultat-arie">...</span> [m<sup>2</sup>] <span class="tooltiptext-right">Aria sectionala pe verticala a quadcopterului</span></p>
+            </div>
+          </div>
+          <button id="button-calcul-arie" class="calcule-buton" type="button" name="button">Calculeaza arie</button>
+        </div>
+
+      </div>
+
+      <div class="container col col-md-4">
+        <div id="div-imagine" class="drona-imagine">
+          <img id="img-drona" class="img-drona" src="./img/drona-corp-cerc.png" alt="Imagine Arii Drona">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Date despre drona -->
+  <div class="container">
+    <div class="row">
+
+      <!-- Date generale drona -->
+      <div class="container col col-md-4">
+        <div class="panel-date culoare-text">
+          <h4>Date Generale</h4>
+          <!-- Lungimea totala  -->
+          <div class="stanga">
+            <div class="box tooltip-right">
+              <label for="lungime-drona">L <span class="indice">D </span>[mm] = &nbsp<span class="tooltiptext-right">Lungimea dronei</span></label>
+              <input type="number" id="lungime-drona" name="lungime-drona" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Masa Dronei -->
+            <div class="box tooltip-right">
+              <label for="masa-drona">M<span class="indice">T </span>[kg] &nbsp&nbsp= <span class="tooltiptext-right">Masa dronei</span> &nbsp</label>
+              <input type="number" id="masa-drona" name="masa-drona" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Temperatura de functionare -->
+            <div class="box tooltip-right">
+              <label for="temperatura-mediu">t<span class="indice">a </span>[&deg;C] &nbsp&nbsp&nbsp&nbsp= <span class="tooltiptext-right">Temperatura mediului ambiant</span> &nbsp</label>
+              <select class="toggle-sty" name="temperatura-mediu" id="temperatura-mediu">
+                <option value="0">-10</option>
+                <option value="1">0</option>
+                <option value="2">10</option>
+                <option value="3">20</option>
+                <option value="4">30</option>
+                <option value="5">40</option>
+                <option value="6">50</option>
+                <option value="7">60</option>
+              </select>
+            </div>
+
+            <!-- timp -->
+            <div class="box tooltip-right">
+              <label for="timp-ridicare">t<span class="indice">s </span>[s] &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp= <span class="tooltiptext-right">Timp de ridicare ales</span> &nbsp</label>
+              <input type="number" id="timp-ridicare" name="timp-ridicare" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Viteza -->
+            <div class="box tooltip-right">
+              <label for="viteza-ridicare">v<span class="indice">s </span>[m/s] &nbsp&nbsp= <span class="tooltiptext-right">Viteza Aleasa</span> &nbsp</label>
+              <input type="number" id="viteza-ridicare" name="viteza-ridicare" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Acceleratie -->
+            <div class="box tooltip-right">
+              <label for="acceleratie-ridicare">a<span class="indice">s </span>[m/s<sup>2</sup>] = <span class="tooltiptext-right">Acceleratia aleasa</span> &nbsp</label>
+              <input type="number" id="acceleratie-ridicare" name="acceleratie-ridicare" autocomplete="on" placeholder="...">
+            </div>
+
+
+
+          </div>
+
+          <div class="dreapta">
+            <!-- Diametrul elicei -->
+            <div class="box tooltip-right">
+              <label for="diametru-elice">Φ <span class="indice">E </span>[mm] = <span class="tooltiptext-right">Diametrul elicei</span> &nbsp</label>
+              <input type="number" id="diametru-elice" name="diametru-elice" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Aria pe verticala -->
+            <div class="box tooltip-right">
+              <label for="arie-drona">A <span class="indice">V </span>[m<sup>2</sup>] =&nbsp&nbsp <span class="tooltiptext-right">Aria dronei pe verticala, vedere de sus</span>&nbsp</label>
+              <input type="number" id="arie-drona" name="arie-drona" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Tensiune alimentare -->
+            <div class="box tooltip-right">
+              <label for="tensiune-alimentare">U <span class="indice">A </span>[V] = &nbsp&nbsp&nbsp<span class="tooltiptext-right">Tensiunea de alimentare a dronei</span> &nbsp</label>
+              <input type="number" id="tensiune-alimentare" name="tensiune-alimentare" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Coeficient de rezistenta a aerului -->
+            <div class="box tooltip-right">
+              <label for="coeficient-rezistenta">C <span class="indice">R </span>[ - ] = &nbsp&nbsp<span class="tooltiptext-right">Coeficient de rezistenta a aerului</span> &nbsp</label>
+              <input type="number" id="coeficient-rezistenta" name="coeficient-rezistenta" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Coeficient de portanta -->
+            <div class="box tooltip-right">
+              <label for="coeficient-portanta">C <span class="indice">P </span>[ - ] = &nbsp&nbsp<span class="tooltiptext-right">Coeficient de portanta [0.01 - 0.05]</span> &nbsp</label>
+              <input type="number" id="coeficient-portanta" name="coeficient-portanta" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Numar de motoare -->
+            <div class="box tooltip-right">
+              <label for="numar-motoare">n <span class="indice">m </span>[ - ] = &nbsp&nbsp<span class="tooltiptext-right">Numarul de motoare</span> &nbsp</label>
+              <input type="number" id="numar-motoare" name="numar-motoare" autocomplete="on" placeholder="...">
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+
+      <!-- Date Baterie -->
+      <div class="container col col-md-4">
+        <div class="panel-date culoare-text">
+          <h4>Date Baterie</h4>
+
+          <div class="stanga">
+            <!-- Capacitate -->
+            <div class="box tooltip-right">
+              <label for="capacitate-baterie">C<span class="indice"> I </span>[mAh] = &nbsp<span class="tooltiptext-right">Capacitatea Bateriei</span></label>
+              <input type="number" id="capacitate-baterie" name="capacitate-baterie" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Numar Celule -->
+            <div class="box tooltip-right">
+              <label for="numarul-de-celule">C <span class="indice"></span>[-] = &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<span class="tooltiptext-right">Numarul de celule</span></label>
+              <input type="number" id="numarul-de-celule" name="numarul-de-celule" autocomplete="on" placeholder="...">
+            </div>
+          </div>
+
+          <div class="dreapta">
+            <!-- Consum componente -->
+            <div class="box tooltip-right">
+              <label for="consum-componente">I <span class="indice">C </span>[A] = <span class="tooltiptext-right">Consumul de curent al componentelor ales de utilizator</span> &nbsp</label>
+              <input type="number" id="consum-componente" name="consum-componente" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Consum motor -->
+            <div class="box tooltip-right">
+              <label for="consum-motor">I <span class="indice">M </span>[A] =<span class="tooltiptext-right">Consumul de curent al unui motor ales de utilizator</span>&nbsp</label>
+              <input type="number" id="consum-motor" name="consum-motor" autocomplete="on" placeholder="...">
+            </div>
+          </div>
+
+          <h4>Date Motor</h4>
+
+          <div class="stanga">
+            <!-- Consum de curent motor -->
+            <div class="box tooltip-right">
+              <label for="curent-maxim-motor">I<span class="indice">M </span>[A] = &nbsp<span class="tooltiptext-right">Consumul de curent maxim al motorului</span></label>
+              <input type="number" id="curent-maxim-motor" name="curent-maxim-motor" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Consum de curent ESC -->
+            <div class="box tooltip-right">
+              <label for="consum-maxim-esc">I <span class="indice">E </span>[A] = &nbsp<span class="tooltiptext-right">Consumul de curent maxim al ESC-ului</span></label>
+              <input type="number" id="consum-maxim-esc" name="consum-maxim-esc" autocomplete="on" placeholder="...">
+            </div>
+
+
+          </div>
+
+          <div class="dreapta">
+            <!-- Masa Dronei -->
+            <div class="box tooltip-right">
+              <label for="putere_maxima_motor">P <span class="indice">max </span>[W] =<span class="tooltiptext-right">Puterea maxima</span> &nbsp</label>
+              <input type="number" id="putere_maxima_motor" name="putere_maxima_motor" autocomplete="on" placeholder="...">
+            </div>
+
+            <!-- Aria pe verticala -->
+            <div class="box tooltip-right">
+              <label for="rpm">W <span class="indice">v </span>[Kv] = &nbsp<span class="tooltiptext-right">RPM/V</span>&nbsp</label>
+              <input type="number" id="rpm" name="rpm" autocomplete="on" placeholder="...">
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+
+  <div class="container last">
+    <div class="row">
+
+      <div class="container col col-md-6">
+        <div class="panel-rezultate culoare-text">
+          <h4>Recomandari</h4>
+
+          <p>Se recomanda, conform lungimii dronei L<span class="indice">D</span> o baterie de <span id="rez-mah">...</span> mAh si <span id="rez-celule">...</span> celule.</p>
+          <p>Raport de <span id="rez-raport">...</span> intre I<span class="indice">E</span> si I<span class="indice">M</span>, se recomanda ca acest raport sa fie intre [1.2-1.5]. </p>
+          <p>Motoarele si ESC-urile <span id="eokay">...</span>.</p>
+          <p>Sistemul, daca este solicitat din punct de vedere electric maxim <span id="sistem-okay">...</span>.</p>
+          <!-- rezista nu rezista -->
+          <h4>Rezultate</h4>
+          <p>Densitatea aerului ρ<span class="indice">aer</span> = <span id="rez-densitate-aer">...</span> [kg/m<sup>3</sup>]</p>
+          <p>Consumul de curent maxim I<span class="indice">max</span> = <span id="rez-imax">...</span> [A]</p>
+          <p>Forta necesara produsa de motoare F<span class="indice">m</span> = <span id="rez-fm">...</span> [N]</p>
+          <p>Masa echivalenta de impingere m<span class="indice">e</span> = <span id="rez-me">...</span> [kg]</p>
+          <p>Puterea bateriei P<span class="indice">b</span> = <span id="rez-putere-batt">...</span> [W]</p>
+          <p>Puterea conform datelor utilizatorului P<span class="indice">user</span> = <span id="rez-putere-user">...</span> [W]</p>
+          <p>Puterea necesara pentru plutire P<span class="indice">min</span> = <span id="rez-putere-plutire">...</span> [W]</p>
+          <p>Puterea maxima P<span class="indice">max</span> = <span id="rez-putere-max">...</span> [W]</p>
+          <p>Timpul de zbor conform datelor utilizatorului t<span class="indice">user</span> = <span id="rez-timp-user">...</span> [min]</p>
+          <p>Timpul de zbor necesar doar pentru plutire t<span class="indice">max</span> = <span id="rez-timp-plutire">...</span> [min]</p>
+          <p>Timpul de zbor cand sistemul functioneaza la maxim t<span class="indice">min</span> = <span id="rez-timp-minim">...</span> [min]</p>
+          <p>Forta de greutate G = <span id="rez-greutate">...</span> [N]</p>
+          <p>Forta rezistenta pe verticala F<span class="indice">rv</span> = <span id="rez-frez-vert">...</span> [N]</p>
+          <p>Forta portanta F<span class="indice">P</span> = <span id="rez-forta-portanta">...</span> [N]</p>
+          <p>Momentul Motor M<span class="indice">m</span> = <span id="rez-moment-motor">...</span> [Nm]</p>
+          <p>Viteza de curgere a aerului indusa v<span class="indice">i</span> = <span id="rez-viteza-aer">...</span> [m/s]</p>
+          <p>Aria Elicei A<span class="indice">e</span> = <span id="rez-arie-elice">...</span> [m<sup>2</sup>]</p>
+          <p>Viteza unghiulara a motoarelor w<span class="indice">1</span> = <span id="rez-omg-1">...</span> [rpm]</p>
+          <p>Viteza unghiulara a motoarelor w<span class="indice">2</span> = <span id="rez-omg-2">...</span> [rad/s]</p>
+
+
+
+        </div>
+      </div>
+      <div class="container col col-md-3">
+        <div class="">
+          <button id="button-calcul" class="calcule-buton small-fix" type="button" name="button">Calculeaza</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- o sa fie butoane aici -->
+
+
+
+
+
+  <script type="text/javascript" src="app.js"></script>
+</body>
+
+</html>
